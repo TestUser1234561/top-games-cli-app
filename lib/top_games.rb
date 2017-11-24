@@ -1,5 +1,10 @@
-require "top_games/version"
+require 'nokogiri'
+require 'open-uri'
 
-module TopGames
-  # Your code goes here...
-end
+require 'top_games/cli'
+require 'top_games/scraper'
+require 'top_games/game'
+require 'top_games/version'
+
+# TopGames namespace
+module TopGames end
