@@ -1,6 +1,7 @@
 module TopGames
   # Scrapes web for current top selling games
   class Scraper
+
     # Scrape steam charts for game data
     # @param url [String] the web page url
     # @return [Array] An array of {Game games's}
@@ -19,5 +20,6 @@ module TopGames
         Game.new(game.css('span.title').text, price, discount, before_discount)
       end
     end
+
   end
 end
