@@ -2,12 +2,13 @@ module TopGames
   # Container for game information
   class Game
 
-    attr_accessor :name, :price, :discount, :before_discount
+    attr_accessor :name, :price, :discount, :before_discount, :url
 
     @all = []
 
-    def initialize(name, price = nil, discount = nil, before_discount = nil)
+    def initialize(name, url, price = nil, discount = nil, before_discount = nil)
       @name = name
+      @url = url
       @price = price
       @discount = discount
       @before_discount = before_discount
@@ -18,6 +19,10 @@ module TopGames
     # @return [Array] {Game}
     def self.all
       @all
+    end
+
+    def self.clear
+      @all.clear
     end
 
   end

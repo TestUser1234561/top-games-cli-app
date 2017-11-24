@@ -10,15 +10,19 @@ module TopGames
 
       games.each do |game|
         # Get game price and any discount's
+
         before_discount = nil
         if (discount = game.css('div.search_discount').text.strip != '')
           before_discount = game.css('div.search_price span').text
           game.css('div.search_price span').remove
         end
+
         price = game.css('div.search_price').text.strip
 
-        Game.new(game.css('span.title').text, price, discount, before_discount)
+        Game.new(game.css('span.title').text, game.first[1], price, discount, before_discount)
       end
+
+      Game.all
     end
 
   end

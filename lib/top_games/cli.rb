@@ -13,8 +13,7 @@ module TopGames
     # Outputs a list of current top selling games
     def chart
       puts '######### Top Selling Games ##########'
-      Scraper.new.scrape_steam_chart
-      Game.all.each.with_index(1) { |game, n| puts "#{n}. #{game.name} - #{game.price}" }
+      Scraper.new.scrape_steam_chart.each.with_index(1) { |game, n| puts "#{n}. #{game.name}" }
     end
 
   end
