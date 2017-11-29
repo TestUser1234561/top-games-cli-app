@@ -1,8 +1,6 @@
 # TopGames
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/top_games`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A Ruby Gem that pulls the current top selling games from steam.
 
 ## Installation
 
@@ -21,8 +19,10 @@ Or install it yourself as:
     $ gem install top_games
 
 ## Usage
-
-TODO: Write usage instructions here
+##### CLI
+* Execute `top-games` in the bin directory to initiate a simple command line interface.
+##### Code
+* Include `top_games.rb` into your project and use `TopGames::Scraper` to return an array of steam games.
 
 ## Development
 
@@ -32,7 +32,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/top_games.
+Bug reports and pull requests are welcome on [GitHub](https://github.com/TestUser1234561/top-games-cli-app).
 
 ## License
 
