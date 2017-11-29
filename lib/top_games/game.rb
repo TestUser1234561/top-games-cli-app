@@ -16,11 +16,13 @@ module TopGames
     end
 
     # Returns all game objects in memory
-    # @return [Array] {Game}
+    # @return [Array] An array of {Game games's}
     def self.all
       @all
     end
 
+    # CLear all game's im memory
+    # @return [Array] An empty array
     def self.clear
       @all.clear
     end
