@@ -2,7 +2,7 @@ module TopGames
   # Container for game information
   class Game
 
-    attr_accessor :name, :price, :discount, :before_discount, :url
+    attr_accessor :name, :price, :discount, :before_discount, :url, :description, :rating
 
     @all = []
 
