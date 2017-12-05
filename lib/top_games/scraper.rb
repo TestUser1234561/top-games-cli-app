@@ -3,14 +3,15 @@ module TopGames
   class Scraper
 
     # Scrape steam charts for game data
-    # @param url [String] the web page url
+    # @param url [String] web page URL
     # @return [Array] An array of {Game games's}
     def scrape_steam_chart(url = 'http://store.steampowered.com/search/?filter=topsellers')
-      games = Nokogiri::HTML(open(url)).css('a.search_result_row')
+      games = Mechanize.new.get(url).css('a.search_result_row')
 
       # Get each game's details
       games.each do |game|
         before_discount = nil
+
         if (discount = game.css('div.search_discount').text.strip != '')
           before_discount = game.css('div.search_price span').text
           game.css('div.search_price span').remove

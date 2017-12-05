@@ -1,5 +1,4 @@
-require 'nokogiri'
-require 'open-uri'
+require 'mechanize'
 
 require 'top_games/cli'
 require 'top_games/scraper'
