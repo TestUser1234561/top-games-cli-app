@@ -38,12 +38,12 @@ module TopGames
       return game.bundle = true unless game.url.to_s.include?('app')
 
       page = agent.get(game.url)
-
       page = bypass_steam_age_check(page) if page.uri.to_s.include?('agecheck')
+
       description = page.css('div.game_description_snippet')
-      rating = page.css('div.summary span')
-      game.description = description.text.strip unless description.nil?
-      game.rating = rating.first.text.strip unless rating.nil?
+      rating = page.css('div.summary span').first
+      game.description = description.nil? ? nil : description.text.strip
+      game.rating = rating.nil? ? 'No user reviews' : rating.text.strip
       game.tags = page.css('div.glance_tags a.app_tag').collect { |tag| tag.text.strip }.join(', ')
       game.developer = page.css('#developers_list a').text
       game.publisher = page.css('.user_reviews .dev_row a').last.text
