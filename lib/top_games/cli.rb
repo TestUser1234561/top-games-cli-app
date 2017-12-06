@@ -26,8 +26,7 @@ module TopGames
     # @param num [Integer]
     def print_detailed(num)
       if num.between?(1, @games.count)
-        game = @games[num - 1]
-        game = @games_sorted[num - 1] unless @games_sorted.nil?
+        game = @games_sorted.nil? ? @games[num - 1] : @games_sorted[num - 1]
 
         puts "-----| #{game.name} |-----"
         puts 'Game Bundle!' if game.bundle
