@@ -47,6 +47,7 @@ module TopGames
       game.tags = page.css('div.glance_tags a.app_tag').collect { |tag| tag.text.strip }.join(', ')
       game.developer = page.css('#developers_list a').text
       game.publisher = page.css('.user_reviews .dev_row a').last.text
+      game
     end
 
     # Bypass steam age check verification
