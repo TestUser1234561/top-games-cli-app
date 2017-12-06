@@ -31,7 +31,7 @@ module TopGames
 
         puts "-----| #{game.name} |-----"
         puts 'Game Bundle!' if game.bundle
-        puts "Price          :    #{game.price}"
+        puts "Price          :    $#{game.price}"
         unless game.bundle
           puts "Description    :    #{game.description}" unless game.description.empty?
           puts "Rating         :    #{game.rating}"
@@ -69,7 +69,7 @@ module TopGames
         print_detailed(input[0].to_i)
       elsif input[0] == 'help'
         puts 'list        :    Lists the current top sellers'
-        puts 'list [sort] :    Displays the list stored by (price, rating)'
+        puts 'list [sort] :    Displays the list stored by (price)'
         puts '[#]         :    Displays extra details about selected game'
         puts 'quit        :    Quits the app'
       else
