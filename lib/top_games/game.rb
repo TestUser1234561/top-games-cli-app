@@ -17,6 +17,7 @@ module TopGames
     end
 
     # Update games detailed data
+    # @return [Game] A {Game}
     def fetch_detailed
       Scraper.new.scrape_steam_detailed(self)
     end
@@ -36,7 +37,7 @@ module TopGames
     # Update every game's detailed data
     # @return [Array] An array of {Game games's}
     def self.update_all
-      @all.each { |game| game.fetch_detailed }
+      @all.each(&:fetch_detailed)
     end
 
   end
