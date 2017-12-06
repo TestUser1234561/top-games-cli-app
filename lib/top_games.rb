@@ -1,9 +1,9 @@
 require 'mechanize'
 
-require 'top_games/cli'
-require 'top_games/scraper'
-require 'top_games/game'
-require 'top_games/version'
+require_relative 'top_games/cli'
+require_relative 'top_games/scraper'
+require_relative 'top_games/game'
+require_relative 'top_games/version'
 
 # TopGames namespace
 module TopGames end

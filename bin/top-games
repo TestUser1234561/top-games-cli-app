@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require 'top_games'
+require_relative '../lib/top_games'
 
 cli = TopGames::CLI.start
