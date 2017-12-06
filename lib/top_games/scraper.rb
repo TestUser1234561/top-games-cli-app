@@ -38,7 +38,6 @@ module TopGames
       return game.bundle = true unless game.url.to_s.include?('app')
 
       page = agent.get(game.url)
-      page = bypass_steam_age_check(page) if page.uri.to_s.include?('agecheck')
 
       description = page.css('div.game_description_snippet')
       rating = page.css('div.summary span').first
@@ -48,14 +47,6 @@ module TopGames
       game.developer = page.css('#developers_list a').text
       game.publisher = page.css('.user_reviews .dev_row a').last.text
       game
-    end
-
-    # Bypass steam age check verification
-    # @param page [Mechanize::Page] Verification page
-    # @return [Mechanize::Page] Game page
-    def bypass_steam_age_check(page)
-      form = page.forms.last
-      @agent.submit(form)
     end
 
   end
