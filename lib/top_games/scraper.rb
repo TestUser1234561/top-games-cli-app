@@ -40,7 +40,6 @@ module TopGames
       page = agent.get(game.url)
 
       page = bypass_steam_age_check(page) if page.uri.to_s.include?('agecheck')
-      puts page.uri
       description = page.css('div.game_description_snippet')
       rating = page.css('div.summary span')
       game.description = description.text.strip unless description.nil?
