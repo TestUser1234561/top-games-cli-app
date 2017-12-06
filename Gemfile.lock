@@ -58,7 +58,6 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   mechanize
-  nokogiri
   rake (~> 10.5.0)
   rspec (~> 3.0)
   top_games!
