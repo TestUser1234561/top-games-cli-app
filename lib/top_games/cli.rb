@@ -7,7 +7,6 @@ module TopGames
     # Displays a list of current top selling games
     def chart(games = @games)
       @games_sorted = nil if games.object_id == @games.object_id
-      puts ''
       games.each.with_index(1) { |game, n| puts "#{n}. #{game.name}" }
     end
 
@@ -53,6 +52,8 @@ module TopGames
     # Calls CLI methods from strings
     # @param input [String] a CLI command
     def switch(input)
+      puts '-' * input.length << "\n\r"
+
       input = input.split(' ')
 
       return true if input[0] == 'quit'
@@ -75,6 +76,8 @@ module TopGames
         puts "Please check your input or use 'help' to get a list of commands!"
       end
 
+      puts "\r\n"
+
       false
     end
 
@@ -82,13 +85,17 @@ module TopGames
     # @return [Object] {CLI}
     def self.start
       cli = new
+
       puts '--------| Top Selling Games |--------'
-      puts 'Please wait for game list to load...'
+      puts "Please wait for game list to load...\n\r"
+
       cli.refresh_games
       Game.update_all
       cli.chart
-      puts "Enter a number to select a game or type 'help' to get a list of commands!"
+
+      puts "\n\rEnter a number to select a game or type 'help' to get a list of commands!\n\r"
       loop { break if cli.switch(gets.chomp.downcase) }
+
       cli
     end
 
